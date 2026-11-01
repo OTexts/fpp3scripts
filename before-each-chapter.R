@@ -1,36 +1,22 @@
-set.seed(1967)
-
-knitr::opts_chunk$set(
-  comment = "#>",
-  collapse = TRUE,
-  echo = TRUE,
-  cache = TRUE,
-  out.width = "100%",
-  fig.align = 'center',
-  fig.width = 7,
-  fig.asp = 0.618  # 1 / phi
-)
-
-library(fpp3, quietly=TRUE)
+library(fpp3, quietly = TRUE)
 library(patchwork)
+
+set.seed(1967)
 
 html <- knitr::is_html_output()
 
-# Set some defaults
-# Colours to be viridis for continuous scales and Okabe for discrete scales
-options(
-  digits = 4,
-  width=58 + html*20,
-  ggplot2.continuous.colour="viridis",
-  ggplot2.continuous.fill = "viridis",
-  ggplot2.discrete.colour = c("#D55E00", "#0072B2","#009E73", "#CC79A7", "#E69F00", "#56B4E9", "#F0E442"),
-  ggplot2.discrete.fill = c("#D55E00", "#0072B2","#009E73", "#CC79A7", "#E69F00", "#56B4E9", "#F0E442")
+# Figure and chunk defaults are set by the otexts format (_extensions/).
+# The rest of the setup shared by the OTexts books is in the otexts package:
+# plot fonts (BookMath for TeX() labels), printing options, viridis and
+# Okabe-Ito colour scales, the ggplot2 theme, conflicts resolved, html_math(),
+# and TeX() and theme_void() defined so chunks can call them.
+library(otexts)
+setup_book(
+  prefer = c(
+    VAR = "fable",
+    select = "dplyr",
+    filter = "dplyr",
+    vars = "dplyr",
+    invoke = "purrr"
+  )
 )
-
-# Avoid some conflicts
-conflicted::conflict_prefer("VAR","fable")
-conflicted::conflict_prefer("select","dplyr")
-conflicted::conflict_prefer("filter","dplyr")
-conflicted::conflict_prefer("vars","dplyr")
-conflicted::conflict_prefer("invoke","purrr")
-
