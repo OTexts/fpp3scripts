@@ -363,12 +363,12 @@ y |>
   labs(title = "White noise")
 
 ## ----acfguess----
-cowtemp <- as_tsibble(fma::cowtemp)
+cowtemp <- as_tsibble(fma::cowtemp + 800)
 USAccDeaths <- as_tsibble(USAccDeaths)
 AirPassengers <- as_tsibble(AirPassengers)
 mink <- as_tsibble(fma::mink)
 tp1 <- autoplot(cowtemp, value) +
-  labs(x = "", y = "chirps per minute", title = "1. Daily temperature of cow")
+  labs(x = "", y = "chirps per 5 minutes", title = "1. Daily temperature of cow")
 tp2 <- autoplot(USAccDeaths, value) +
   labs(x = "", y = "thousands", title = "2. Monthly accidental deaths")
 tp3 <- autoplot(AirPassengers, value) +
