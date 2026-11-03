@@ -364,9 +364,9 @@ y |>
 
 ## ----acfguess----
 cowtemp <- as_tsibble(fma::cowtemp + 800)
-USAccDeaths <- as_tsibble(USAccDeaths)
+USAccDeaths <- as_tsibble(USAccDeaths / 1e3)
 AirPassengers <- as_tsibble(AirPassengers)
-mink <- as_tsibble(fma::mink)
+mink <- as_tsibble(fma::mink / 1e3)
 tp1 <- autoplot(cowtemp, value) +
   labs(x = "", y = "chirps per 5 minutes", title = "1. Daily temperature of cow")
 tp2 <- autoplot(USAccDeaths, value) +
