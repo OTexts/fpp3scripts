@@ -168,7 +168,7 @@ p3 <- aus_production |>
   autoplot(Electricity) +
   smallfonts +
   labs(
-    y = "kWh (billion) ",
+    y = "GWh",
     title = "Australian quarterly electricity production"
   )
 p4 <- gafa_stock |>
